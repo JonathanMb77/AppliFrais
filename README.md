@@ -1,4 +1,4 @@
-# ApplisFRais
+# ApplisFrais
 
 Application web de gestion des frais du laboratoire GSB.
 

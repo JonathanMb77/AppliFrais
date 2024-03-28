@@ -48,11 +48,17 @@
               <label for="txtMontantHF">Montant : </label>
               <input type="text" id="txtMontantHF" name="montant" size="10" maxlength="10" value="" />
             </p>
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+              Ajouter votre/vos justificatif(s):
+              <input type="file" name="the_file" id="fileToUpload" accept=".pdf">
+              <!--<input type="submit" value="Upload Image" name="submit">-->
+              <input id="ajouter" type="submit" name="submit" value="Ajouter" size="20" />
+            </form>
           </fieldset>
       </div>
       <div class="piedForm">
       <p>
-        <input id="ajouter" type="submit" value="Ajouter" size="20" />
+        
         <input id="effacer" type="reset" value="Effacer" size="20" />
       </p> 
       </div>

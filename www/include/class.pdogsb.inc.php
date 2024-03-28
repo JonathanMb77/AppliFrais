@@ -44,6 +44,18 @@ class PdoGsb {
   	    $ligne = $cmd->fetch();
   	    return $ligne;
     } 
+
+
+    // Créer une fonction qui vérifie le hash du mot de passe en prenant en paramètre un id
+    public function gethash($login){
+      $req = "select mdp from Visiteur where login = ? and mdp = ?";
+      $cmd = $this->monPdo->prepare($req);
+      $cmd->bindValue(1, $login);
+      $cmd->execute();
+      $ligne = $cmd->fetch();
+      return $ligne;
+  } 
+
   /**
    * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
    * concernées par les deux arguments   

@@ -42,7 +42,7 @@ CREATE TABLE  Visiteur (
   nom char(30) DEFAULT NULL,
   prenom char(30)  DEFAULT NULL, 
   login char(20) DEFAULT NULL,
-  mdp char(100) DEFAULT NULL,
+  mdp char(100) DEFAULT NULL, -- J'ai mis 100 alors que la longueur du hash est de 97 afin d'éviter d'entuel problème
   adresse char(30) DEFAULT NULL,
   cp char(5) DEFAULT NULL,
   ville char(30) DEFAULT NULL,

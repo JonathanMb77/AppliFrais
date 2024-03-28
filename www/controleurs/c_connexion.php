@@ -10,7 +10,9 @@ switch($action){
 	case 'valideConnexion':{
 		$login = lireDonneePost('login');
 		$mdp = lireDonneePost('mdp');
-		$visiteur = $pdo->getInfosVisiteur($login,$mdp);
+		$hash_mdp = password_hash($mdp, PASSWORD_ARGON2ID);
+		echo (password_verify($mdp, $hash_mdp));
+		$visiteur = $pdo->getInfosVisiteur($login,$hash_mdp);
 		if(!is_array( $visiteur)){
 			ajouterErreur("Login ou mot de passe incorrect", $tabErreurs);
 		  include("vues/v_debutContenu.php");

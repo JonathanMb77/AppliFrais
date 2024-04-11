@@ -2,7 +2,7 @@
 return array(
     // Configuration de la base de donnée
     'host' => 'localhost',
-    'user' => 'userGsb',
+    'user' => "userGsb",
     'password' => 'secret', // Changez le mot de passe en production
     'database' => 'gsbfrais',
 

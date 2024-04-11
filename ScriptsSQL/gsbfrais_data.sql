@@ -34,7 +34,6 @@ INSERT INTO `Etat` (`id`, `libelle`) VALUES
 --
 -- Déchargement des données de la table `Visiteur`
 --
-
 INSERT INTO `Visiteur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `ville`, `dateEmbauche`) VALUES
 ('a131', 'Villechalane', 'Louis', 'lvillachane', 'jux7g', '8 rue des Charmes', '46000', 'Cahors', '2005-12-21'),
 ('a17', 'Andre', 'David', 'dandre', 'oppg5', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23'),
@@ -63,6 +62,7 @@ INSERT INTO `Visiteur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, 
 ('f21', 'Finck', 'Jacques', 'jfinck', '111001', '10 avenue du Prado', '13002', 'Marseille', '2001-11-10'),
 ('f39', 'Frémont', 'Fernande', 'ffremont', 'xs5tq', '4 route de la mer', '13012', 'Allauh', '1998-10-01'),
 ('f4', 'Gest', 'Alain', 'agest', 'dywvt', '30 avenue de la mer', '13025', 'Berre', '1985-11-01');
+
 --
 -- Déchargement des données de la table `fichefrais`
 --

@@ -35,11 +35,10 @@ class PdoGsb {
    * @param string  mot de passe
    * @return array  l'id, le nom et le prénom sous la forme d'un tableau associatif 
   */
-    public function getInfosVisiteur($login, $mdp){
-  	    $req = "select id, nom, prenom from Visiteur where login = ? and mdp = ?";
+    public function getInfosVisiteur($login){
+  	    $req = "select id, nom, prenom from Visiteur where login = ?";
   	    $cmd = $this->monPdo->prepare($req);
         $cmd->bindValue(1, $login);
-        $cmd->bindValue(2, $mdp);
         $cmd->execute();
   	    $ligne = $cmd->fetch();
   	    return $ligne;
@@ -48,12 +47,12 @@ class PdoGsb {
 
     // Créer une fonction qui vérifie le hash du mot de passe en prenant en paramètre un id
     public function gethash($login){
-      $req = "select mdp from Visiteur where login = ? and mdp = ?";
+      $req = "select mdp from Visiteur where login = ?";
       $cmd = $this->monPdo->prepare($req);
       $cmd->bindValue(1, $login);
       $cmd->execute();
       $ligne = $cmd->fetch();
-      return $ligne;
+      return $ligne['mdp'];
   } 
 
   /**

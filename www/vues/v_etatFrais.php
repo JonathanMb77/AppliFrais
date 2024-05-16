@@ -35,19 +35,22 @@
              <tr>
                 <th class="date">Date</th>
                 <th class="libelle">Libellé</th>
-                <th class='montant'>Montant</th>              
+                <th class='montant'>Montant</th>
+                <th class='justificatif'>justificatifs</th>            
              </tr>
         <?php      
           foreach ( $lesFraisHorsForfait as $unFraisHorsForfait ) {
       			 $date = $unFraisHorsForfait['date'];
 			       $libelle = $unFraisHorsForfait['libelle'];
 			       $montant = $unFraisHorsForfait['montant'];
+                $justificatif = $unFraisHorsForfait['justificatif'];
              $montantTotalHorsForfait += $montant;
 		?>
              <tr>
                 <td><?php echo $date ?></td>
                 <td><?php echo $libelle ?></td>
                 <td><?php echo $montant ?></td>
+                <td><?php echo $justificatif ?></td>
              </tr>
         <?php 
           }

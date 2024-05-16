@@ -5,7 +5,8 @@
              <tr>
                 <th class="date">Date</th>
 				<th class="libelle">Libellé</th>  
-                <th class="montant">Montant</th>  
+                <th class="montant">Montant</th>
+                <th class="justificatif">Justificatif</th>  
                 <th class="action">&nbsp;</th>              
              </tr>
           
@@ -15,12 +16,14 @@
 			$libelle = $unFraisHorsForfait['libelle'];
 			$date = $unFraisHorsForfait['date'];
 			$montant=$unFraisHorsForfait['montant'];
+      $justificatif= $unFraisHorsForfait['justificatif'];
 			$id = $unFraisHorsForfait['id'];
 	?>		
             <tr>
                 <td> <?php echo $date ?></td>
                 <td><?php echo $libelle ?></td>
                 <td><?php echo $montant ?></td>
+                <td><?php echo $justificatif ?></td>
                 <td><a href="index.php?uc=gererFrais&action=supprimerFrais&idFrais=<?php echo $id ?>" 
 				onclick="return confirm('Voulez-vous vraiment supprimer ce frais?');">Supprimer ce frais</a></td>
              </tr>

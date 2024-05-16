@@ -95,6 +95,7 @@ CREATE TABLE  LigneFraisHorsForfait (
   libelle varchar(100) DEFAULT NULL,
   date date DEFAULT NULL,
   montant decimal(10,2) DEFAULT NULL,
+  justificatif varchar(100) DEFAULT NULL,
   constraint pkLigneFraisHorsForfait PRIMARY KEY (id)
 );
 

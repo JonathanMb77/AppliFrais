@@ -52,9 +52,10 @@ else  { // accès autorisé
   		$dateFrais = lireDonneePost('dateFrais');
   		$libelle = lireDonneePost('libelle');
   		$montant = lireDonneePost('montant');
+		$justificatif = $uploadPath;
   		valideInfosFrais($dateFrais,$libelle,$montant,$tabErreurs);
   		if (nbErreurs($tabErreurs) == 0 && empty($errors) ){
-                    $pdo->creeNouveauFraisHorsForfait($idVisiteur,$mois,$libelle,$dateFrais,$montant);
+                    $pdo->creeNouveauFraisHorsForfait($idVisiteur,$mois,$libelle,$dateFrais,$montant,$justificatif);
 					$didUpload = move_uploaded_file($fileTmpName, $uploadPath);
   		}
   		break;

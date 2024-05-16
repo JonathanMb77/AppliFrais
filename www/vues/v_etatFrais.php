@@ -30,18 +30,19 @@
 		    </tr>
     </table>
   	<table class="listeLegere">
-  	   <caption>Descriptif des éléments hors forfait -<?php echo $nbJustificatifs ?> justificatifs reçus -
+     <caption>Descriptif des éléments hors forfait -<?php echo $nbJustificatifs ?> justificatifs reçus -
        </caption>
              <tr>
                 <th class="date">Date</th>
                 <th class="libelle">Libellé</th>
-                <th class='montant'>Montant</th>                
+                <th class='montant'>Montant</th>              
              </tr>
         <?php      
           foreach ( $lesFraisHorsForfait as $unFraisHorsForfait ) {
       			 $date = $unFraisHorsForfait['date'];
 			       $libelle = $unFraisHorsForfait['libelle'];
 			       $montant = $unFraisHorsForfait['montant'];
+             $montantTotalHorsForfait += $montant;
 		?>
              <tr>
                 <td><?php echo $date ?></td>
@@ -50,7 +51,10 @@
              </tr>
         <?php 
           }
-		?>
+          $montantTotal = $montantTotalHorsForfait + $montantValide
+              ?>
     </table>
+    <p>Montant total (hors forfait): <?php echo $montantTotalHorsForfait?></p>
+    <p>Montant total (hors forfait+ forfaitisés): <?php echo $montantTotal ?></p>
   </div>
   </div>

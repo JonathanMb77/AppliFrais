@@ -30,18 +30,40 @@ else  { // accès autorisé
   	  break;
   	
   	case 'validerCreationFrais':
+		//
+		$currentDirectory = getcwd();
+		$uploadDirectory = "\uploads\\";
+
+		$errors = []; // Store errors here
+
+    	$fileExtensionsAllowed = ['pdf']; // These will be the only file extensions allowed 
+
+		$fileName = $_FILES['the_file']['name'];
+		$fileSize = $_FILES['the_file']['size'];
+		$fileTmpName  = $_FILES['the_file']['tmp_name'];
+		$fileType = $_FILES['the_file']['type'];
+		$fileExtension = strtolower(end(explode('.',$fileName)));
+
+		$uploadPath = $currentDirectory . $uploadDirectory . basename($fileName); 
+		echo ($uploadPath);
+
+		
+		//
   		$dateFrais = lireDonneePost('dateFrais');
   		$libelle = lireDonneePost('libelle');
   		$montant = lireDonneePost('montant');
   		valideInfosFrais($dateFrais,$libelle,$montant,$tabErreurs);
-  		if (nbErreurs($tabErreurs) == 0 ){
+  		if (nbErreurs($tabErreurs) == 0 && empty($errors) ){
                     $pdo->creeNouveauFraisHorsForfait($idVisiteur,$mois,$libelle,$dateFrais,$montant);
+					$didUpload = move_uploaded_file($fileTmpName, $uploadPath);
   		}
   		break;
   	
   	case 'supprimerFrais':
   		$idFrais = lireDonneeUrl('idFrais');
                 $pdo->supprimerFraisHorsForfait($idFrais);
+				echo ($uploadPath);
+				rmdir($uploadPath);
   		break;
   }
   $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur,$mois);

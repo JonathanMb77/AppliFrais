@@ -239,7 +239,6 @@ class PdoGsb {
    * @param string  libelle : le libelle du frais
    * @param string  la date du frais au format français jj//mm/aaaa
    * @param string  le montant
-   * @return void rien
   */
     public function creeNouveauFraisHorsForfait($idVisiteur,$mois,$libelle,$date,$montant){      
   	    $dateEn = dateFrancaisVersAnglais($date);

@@ -118,6 +118,27 @@ class PdoGsb {
         $cmd->closeCursor();
   	    return $lesLignes; 
     }
+
+    public function getLesFraisForfaitSynthese($idVisiteur){
+        $req = "SELECT fichefrais.mois, etat.libelle, SUM(montantValide) AS totalValide, SUM(lignefraishorsforfait.montant) AS totalEngage
+                FROM visiteur
+                JOIN fichefrais
+                ON visiteur.id = fichefrais.idVisiteur
+                JOIN etat
+                ON fichefrais.idEtat = etat.id
+                JOIN lignefraishorsforfait
+		            ON visiteur.id = lignefraishorsforfait.idVisiteur
+                AND fichefrais.mois = lignefraishorsforfait.mois
+                WHERE visiteur.id = ?
+                GROUP BY fichefrais.mois, fichefrais.idVisiteur
+                ORDER BY fichefrais.mois DESC";
+        $cmd = $this->monPdo->prepare($req);
+        $cmd->bindValue(1, $idVisiteur);
+        $cmd->execute();
+        $lesLignes = $cmd->fetchAll();
+        $cmd->closeCursor();
+        return $lesLignes; 
+    }
   /**
    * Retourne tous les id de la table FraisForfait
    

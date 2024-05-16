@@ -5,6 +5,8 @@
 // vérification du droit d'accès au cas d'utilisation
 if ( ! estConnecte() ) {
     ajouterErreur("L'accès à cette page requiert une authentification !", $tabErreurs);
+	include("vues/v_erreurs.php");
+	die();
 }
 else  { // accès autorisé
   $idVisiteur = $_SESSION['idVisiteur'];

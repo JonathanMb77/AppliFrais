@@ -29,6 +29,10 @@ switch($uc){
 	case 'gererFrais' :
 		include("controleurs/c_gererFrais.php");
     break;
+  
+  case 'synthese' :
+    include("controleurs/c_synthese.php");
+    break;
 	
 	default :
     if ( $estConnecte ) {

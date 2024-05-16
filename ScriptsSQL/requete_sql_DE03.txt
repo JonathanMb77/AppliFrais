@@ -1,0 +1,11 @@
+SELECT date, libelle, montant
+FROM <table1>
+INNER JOIN <table2> ON <table1.id> = <table2.id>
+
+SELECT dateModif, etat.libelle, montant
+                FROM fichefrais
+                INNER JOIN etat ON fichefrais.idVisiteur = etat.id
+                INNER JOIN fraisforfait ON fichefrais.idVisiteur = fraisforfait.id
+                INNER JOIN lignefraisforfait ON fichefrais.idVisiteur = lignefraisforfait.idVisiteur
+                where lignefraisforfait.idVisiteur = ?
+                order by lignefraisforfait.idFraisForfait
